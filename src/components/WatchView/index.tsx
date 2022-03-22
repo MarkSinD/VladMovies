@@ -88,10 +88,12 @@ const WatchView: FC<WatchViewProps> = ({
                     playerKey={playerKey}
                     primaryColor="#0D90F3"
                     src={sources}
-                    subtitles={subtitles.map((subtitle) => ({
-                      ...subtitle,
-                      url: subtitleProxy(subtitle.url),
-                    }))}
+                    subtitles={
+                      subtitles?.map((subtitle) => ({
+                        ...subtitle,
+                        url: subtitleProxy(subtitle.url),
+                      })) || []
+                    }
                   >
                     {(ref, props) => <HlsPlayer playerRef={ref} {...props} />}
                   </Player>
