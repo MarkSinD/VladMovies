@@ -1,4 +1,5 @@
 import { FC, useEffect } from "react";
+import { PROXY, subtitleProxy } from "../../shared/constants";
 
 import Comment from "./Comment";
 import { DetailType } from "../../shared/types";
@@ -9,7 +10,6 @@ import { Player } from "react-tuby";
 import Similar from "./Similar";
 import Skeleton from "../Skeleton";
 import Title from "../Title";
-import { subtitleProxy } from "../../shared/constants";
 
 interface WatchViewProps {
   data?: DetailType;
@@ -95,7 +95,13 @@ const WatchView: FC<WatchViewProps> = ({
                       })) || []
                     }
                   >
-                    {(ref, props) => <HlsPlayer playerRef={ref} {...props} />}
+                    {(ref, props) => (
+                      <HlsPlayer
+                        playerRef={ref}
+                        {...props}
+                        src={`${PROXY}${props.src}`}
+                      />
+                    )}
                   </Player>
                 ) : (
                   <div className="w-full h-0 pb-[56.25%] relative">
