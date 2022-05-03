@@ -19,4 +19,4 @@ export const IMAGE_CARD_SIZE = {
   },
 };
 
-export const PROXY = "https://ezexpress.tk/";
+export const PROXY = "";

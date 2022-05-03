@@ -12,6 +12,14 @@ const Explore: FC = () => {
     getSearchConfig()
   );
 
+  const searchConfig1 = [
+    "Сериалы",
+    "Фильмы",
+    "Аниме",
+  ]
+
+  console.log("searchConfig", searchConfig)
+
   const [sectionIndex, setSectionIndex] = useState(0);
 
   if (error) return <Error />;
@@ -41,7 +49,7 @@ const Explore: FC = () => {
                     setSectionIndex(index);
                   }}
                 >
-                  {config.name}
+                  {searchConfig1[index]}
                 </button>
               ))}
             </div>

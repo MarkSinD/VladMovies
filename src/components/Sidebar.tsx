@@ -28,15 +28,15 @@ const Sidebar: FC<SidebarProps> = ({ sidebarActive, setSidebarActive }) => {
         }`}
       >
         <Link to="/" className="flex gap-2 items-center">
-          <img className="w-6 h-6" src="/icon.png" alt="" />
+          <img className="w-20 h-20" src="/src/components/Home/logo.png" alt="" />
           <p className="font-semibold text-xl block sm:hidden xl:block">
-            FilmHot
+            Фильмы с корейскими субтитрами
           </p>
         </Link>
 
         <div className="mt-0 sm:mt-4 xl:mt-0 block sm:flex flex-col gap-0 sm:gap-4 xl:block xl:gap-0">
           <p className="text-gray-400 uppercase mt-10 mb-4 block sm:hidden xl:block">
-            Menu
+            Меню
           </p>
 
           <div className="flex flex-col items-stretch gap-3">
@@ -49,7 +49,7 @@ const Sidebar: FC<SidebarProps> = ({ sidebarActive, setSidebarActive }) => {
               }`}
             >
               <i className="fas fa-home text-xl w-[24px]"></i>
-              <p className="block sm:hidden xl:block">Home</p>
+              <p className="block sm:hidden xl:block">О приложении</p>
             </Link>
 
             <Link
@@ -61,7 +61,7 @@ const Sidebar: FC<SidebarProps> = ({ sidebarActive, setSidebarActive }) => {
               }`}
             >
               <i className="fas fa-compass text-xl w-[24px]"></i>
-              <p className="block sm:hidden xl:block">Discovery</p>
+              <p className="block sm:hidden xl:block">Лента</p>
             </Link>
 
             <Link
@@ -73,7 +73,7 @@ const Sidebar: FC<SidebarProps> = ({ sidebarActive, setSidebarActive }) => {
               }`}
             >
               <i className="fas fa-desktop text-xl w-[24px]"></i>
-              <p className="block sm:hidden xl:block">Explore</p>
+              <p className="block sm:hidden xl:block">Поиск</p>
             </Link>
 
             <Link
@@ -85,7 +85,7 @@ const Sidebar: FC<SidebarProps> = ({ sidebarActive, setSidebarActive }) => {
               }`}
             >
               <i className="fas fa-history text-xl w-[24px]"></i>
-              <p className="block sm:hidden xl:block">History</p>
+              <p className="block sm:hidden xl:block">Посмотренные видео</p>
             </Link>
 
             <Link
@@ -100,41 +100,6 @@ const Sidebar: FC<SidebarProps> = ({ sidebarActive, setSidebarActive }) => {
               <p className="block sm:hidden xl:block">Search</p>
             </Link>
           </div>
-
-          <p className="text-gray-400 uppercase mt-10 mb-4 block sm:hidden xl:block">
-            Personal
-          </p>
-
-          {!currentUser ? (
-            <Link
-              to={`/sign-in?redirect=${encodeURIComponent(location.pathname)}`}
-              className="flex items-center cursor-pointer gap-2 transition text-gray-400 hover:text-gray-300"
-            >
-              <i className="fas fa-sign-in-alt text-xl w-[24px]"></i>
-              <p className="block sm:hidden xl:block">Sign In</p>
-            </Link>
-          ) : (
-            <div className="flex flex-col items-stretch gap-3">
-              <div className="flex gap-2 items-center">
-                <img
-                  className="w-[24px] h-[24px] rounded-full"
-                  src={resizeImage(currentUser.photoURL, "24", "24")}
-                  alt=""
-                />
-
-                <p className="text-gray-400 block sm:hidden xl:block">
-                  {currentUser.displayName}
-                </p>
-              </div>
-              <button
-                onClick={handleSignOut}
-                className="flex items-center cursor-pointer gap-2 transition text-gray-400 hover:text-gray-300"
-              >
-                <i className="fas fa-sign-out-alt text-xl w-[24px]"></i>
-                <p className="block sm:hidden xl:block">Sign Out</p>
-              </button>
-            </div>
-          )}
         </div>
       </div>
       <div

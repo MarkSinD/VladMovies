@@ -25,6 +25,7 @@ const SearchBox: FC<SearchBoxProps> = ({ autoFocus }) => {
 
     timeoutRef.current = setTimeout(async () => {
       const data = await searchKeywords(inputValue.trim());
+      console.log("data: ", data);
 
       setSuggestions(data.map((item) => htmlToText(item)));
     }, 500);
@@ -38,6 +39,7 @@ const SearchBox: FC<SearchBoxProps> = ({ autoFocus }) => {
     }
   };
 
+
   return (
     <div className="relative group w-full">
       <form onSubmit={handleFormSubmit} className="relative">
@@ -49,7 +51,7 @@ const SearchBox: FC<SearchBoxProps> = ({ autoFocus }) => {
           onChange={(e) => setInputValue(e.target.value)}
           className="bg-transparent outline-none border border-gray-600 w-full rounded-full py-2 pl-4 pr-8"
           type="text"
-          placeholder="Search..."
+          placeholder="Найти..."
           autoFocus={autoFocus}
         />
         <button className="absolute right-2 top-1/2 -translate-y-1/2">

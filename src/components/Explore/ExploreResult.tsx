@@ -36,6 +36,8 @@ const ExploreResult: FC<ExploreResultProps> = ({
     }
   );
 
+  console.log("data: ", data);
+
   if (error) return <Error />;
 
   return (
